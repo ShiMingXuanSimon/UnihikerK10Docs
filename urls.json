@@ -1,0 +1,251 @@
+{
+  "generatedAt": "2026-11-20T10:33:12.023Z",
+  "baseUrl": "https://www.unihiker.com.cn",
+  "items": [
+    {
+      "type": "link",
+      "slug": "",
+      "href": "/wiki/k10",
+      "title": "简介",
+      "sourceTitle": null
+    },
+    {
+      "type": "link",
+      "slug": "get-started",
+      "href": "/wiki/k10/get-started",
+      "title": "快速使用教程(学习指南)",
+      "sourceTitle": "行空板K10官方文档-快速上手教程 "
+    },
+    {
+      "type": "link",
+      "slug": "FAQ",
+      "href": "/wiki/k10/FAQ",
+      "title": "FAQ常见问题",
+      "sourceTitle": "行空板K10官方文档-常见问题"
+    },
+    {
+      "type": "link",
+      "slug": "xiaozhi_ai",
+      "href": "/wiki/k10/xiaozhi_ai",
+      "title": "小智AI使用教程",
+      "sourceTitle": "小智AI使用教程"
+    },
+    {
+      "type": "link",
+      "slug": "esp_claw",
+      "href": "/wiki/k10/esp_claw",
+      "title": "ESP CLAW使用教程",
+      "sourceTitle": "ESP Claw使用教程"
+    },
+    {
+      "type": "group",
+      "title": "1、行空板K10介绍",
+      "items": [
+        {
+          "slug": "jianjie",
+          "href": "/wiki/k10/jianjie",
+          "title": "1.1 硬件和参数介绍",
+          "sourceTitle": "行空板K10官方文档 - 硬件介绍"
+        },
+        {
+          "slug": "default-program",
+          "href": "/wiki/k10/default-program",
+          "title": "1.2 出厂程序说明",
+          "sourceTitle": "行空板K10官方文档-出厂程序说明"
+        },
+        {
+          "slug": "offline-work",
+          "href": "/wiki/k10/offline-work",
+          "title": "1.3 脱机工作和供电",
+          "sourceTitle": "行空板K10官方文档-脱机工作"
+        },
+        {
+          "slug": "TFcard",
+          "href": "/wiki/k10/TFcard",
+          "title": "1.4 TF存储卡说明",
+          "sourceTitle": "行空板K10官方文档-TF存储卡说明"
+        },
+        {
+          "slug": "compatibility1",
+          "href": "/wiki/k10/compatibility1",
+          "title": "1.5 扩展板兼容性说明",
+          "sourceTitle": "行空板K10官方文档-扩展板兼容性说明"
+        },
+        {
+          "slug": "compatibility2",
+          "href": "/wiki/k10/compatibility2",
+          "title": "1.6 传感器兼容性说明",
+          "sourceTitle": "行空板官方文档-传感器兼容性说明"
+        },
+        {
+          "slug": "download",
+          "href": "/wiki/k10/download",
+          "title": "1.7 资料下载",
+          "sourceTitle": "行空板K10官方文档-资料下载"
+        },
+        {
+          "slug": "firmware_upload",
+          "href": "/wiki/k10/firmware_upload",
+          "title": "1.8 固件烧录",
+          "sourceTitle": "行空板K10 官方固件烧录"
+        }
+      ]
+    },
+    {
+      "type": "group",
+      "title": "2、图形化积木说明",
+      "items": [
+        {
+          "slug": "mindplus-ready",
+          "href": "/wiki/k10/mindplus-ready",
+          "title": "Mind+图形化编程准备",
+          "sourceTitle": "行空板K10官方文档-准备工作"
+        },
+        {
+          "slug": "mindplus-screen",
+          "href": "/wiki/k10/mindplus-screen",
+          "title": "2.1 屏幕显示积木",
+          "sourceTitle": "行空板K10官方文档-屏幕显示"
+        },
+        {
+          "slug": "mindplus-sensor",
+          "href": "/wiki/k10/mindplus-sensor",
+          "title": "2.2 板载传感器积木",
+          "sourceTitle": "行空板K10官方文档-板载传感器"
+        },
+        {
+          "slug": "mindplus-led",
+          "href": "/wiki/k10/mindplus-led",
+          "title": "2.3 LED控制积木",
+          "sourceTitle": "行空板K10官方文档-LED控制"
+        },
+        {
+          "slug": "mindplus-audio",
+          "href": "/wiki/k10/mindplus-audio",
+          "title": "2.4 音频录放积木",
+          "sourceTitle": "行空板K10官方文档-音频录放"
+        },
+        {
+          "slug": "mindplus-ai",
+          "href": "/wiki/k10/mindplus-ai",
+          "title": "2.5 人工智能积木",
+          "sourceTitle": "行空板K10官方文档-人工智能"
+        },
+        {
+          "slug": "mindplus_uart",
+          "href": "/wiki/k10/mindplus_uart",
+          "title": "2.6 串口操作积木",
+          "sourceTitle": "行空板K10官方文档-串口操作"
+        },
+        {
+          "slug": "mindplus_pin",
+          "href": "/wiki/k10/mindplus_pin",
+          "title": "2.7 引脚操作积木",
+          "sourceTitle": "行空板K10官方文档-引脚操作"
+        }
+      ]
+    },
+    {
+      "type": "group",
+      "title": "3、Micropython库说明",
+      "items": [
+        {
+          "slug": "micropython_block_unihiker_k10",
+          "href": "/wiki/k10/micropython_block_unihiker_k10",
+          "title": "unihiker_k10官方库（积木模式）",
+          "sourceTitle": "行空板K10官方教程-micropthon_block_unihiker_k10"
+        },
+        {
+          "slug": "micropython_unihiker_k10",
+          "href": "/wiki/k10/micropython_unihiker_k10",
+          "title": "unihiker_k10官方库（代码模式）",
+          "sourceTitle": "行空板K10官方教程-micropython_unihiker_k10"
+        },
+        {
+          "slug": "micropython_educore",
+          "href": "/wiki/k10/micropython_educore",
+          "title": "educore人教库",
+          "sourceTitle": "行空板K10官方文档-educore库"
+        }
+      ]
+    },
+    {
+      "type": "group",
+      "title": "4、Arduino IDE/PlatformIO使用",
+      "items": [
+        {
+          "slug": "ArduinoIDE_prepare",
+          "href": "/wiki/k10/ArduinoIDE_prepare",
+          "title": "Arduino IDE编程准备",
+          "sourceTitle": "Arduino IDE 编程准备"
+        },
+        {
+          "slug": "platform_io_prepare",
+          "href": "/wiki/k10/platform_io_prepare",
+          "title": "Platform IO编程准备",
+          "sourceTitle": "PlatformIO编程准备"
+        },
+        {
+          "slug": "Arduino_PIO_Example",
+          "href": "/wiki/k10/Arduino_PIO_Example",
+          "title": "Arduino/PIO示例代码",
+          "sourceTitle": "Arduino PIO 示例代码"
+        },
+        {
+          "slug": "Arduino_PIO_API_List",
+          "href": "/wiki/k10/Arduino_PIO_API_List",
+          "title": "Arduino/PIO API手册",
+          "sourceTitle": "Arduino/PlatformIO API手册"
+        }
+      ]
+    },
+    {
+      "type": "group",
+      "title": "5、Schematik AI编程",
+      "items": [
+        {
+          "slug": "schematik_vibe_coding",
+          "href": "/wiki/k10/schematik_vibe_coding",
+          "title": "Schematik AI编程",
+          "sourceTitle": "Schematik AI编程教程"
+        }
+      ]
+    },
+    {
+      "type": "group",
+      "title": "6、官方系列教程",
+      "items": [
+        {
+          "slug": "blocktutorials",
+          "href": "/wiki/k10/blocktutorials",
+          "title": "官方图形化编程教程",
+          "sourceTitle": "行空板K10官方文档-图形化编程教程"
+        }
+      ]
+    },
+    {
+      "type": "group",
+      "title": "7、优秀应用案例",
+      "items": [
+        {
+          "slug": "others_project",
+          "href": "/wiki/k10/others_project",
+          "title": "其他社区优秀项目",
+          "sourceTitle": "行空板K10官方文档-社区优秀项目"
+        },
+        {
+          "slug": "iot_project",
+          "href": "/wiki/k10/iot_project",
+          "title": "IoT物联网相关项目",
+          "sourceTitle": null
+        },
+        {
+          "slug": "AI_project",
+          "href": "/wiki/k10/AI_project",
+          "title": "AI人工智能相关项目",
+          "sourceTitle": "行空板K10官方文档-AI项目"
+        }
+      ]
+    }
+  ]
+}
