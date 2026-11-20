@@ -18,7 +18,7 @@ updated: "2026-11-20"
 ### 硬件
 
 [行空板 K10](https://www.dfrobot.com.cn/goods-4014.html)  
-[ESP CLAW固件](/wiki/k10/ESPCLAW%E5%9B%BA%E4%BB%B6 "dfrobot_k10_merged_260427.zip")
+[ESP CLAW固件](https://www.unihiker.com.cn/wiki/k10/ESPCLAW%E5%9B%BA%E4%BB%B6 "dfrobot_k10_merged_260427.zip")
 
 ## 烧录方法1
 
