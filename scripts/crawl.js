@@ -38,6 +38,29 @@ td.addRule('fencedCode', {
 
 function sha1(s) { return crypto.createHash('sha1').update(s).digest('hex') }
 
+function rewriteLink(raw, pageUrl, slugSet) {
+  if (!raw || raw.startsWith('#') || raw.startsWith('mailto:') || raw.startsWith('tel:')) return raw
+  let abs
+  try { abs = new URL(raw, pageUrl) } catch { return raw }
+
+  if (abs.hostname === 'www.unihiker.com.cn') {
+    const p = abs.pathname
+    let targetSlug = null
+    if (p === '/wiki/k10' || p === '/wiki/k10/') targetSlug = ''
+    else if (p.startsWith('/wiki/k10/')) {
+      try { targetSlug = decodeURIComponent(p.slice('/wiki/k10/'.length)) } catch { targetSlug = null }
+    }
+    if (targetSlug !== null) {
+      if (slugSet.has(targetSlug)) {
+        const path = targetSlug === '' ? '/wiki/k10/' : `/wiki/k10/${targetSlug}`
+        return path + abs.hash
+      }
+      return abs.href
+    }
+  }
+  return /^https?:|^mailto:|^tel:/.test(raw) ? raw : abs.href
+}
+
 async function downloadImage(url, state) {
   if (url.startsWith('data:')) return null
   const cached = state.images[url]
@@ -61,7 +84,7 @@ async function downloadImage(url, state) {
   return filename
 }
 
-async function crawlOne(item, state) {
+async function crawlOne(item, state, slugSet) {
   const url = state.baseUrl + item.href
   const slug = item.slug || 'index'
   const outFile = path.join(OUT_DIR, `${slug}.md`)
@@ -90,16 +113,8 @@ async function crawlOne(item, state) {
 
   $article.find('a[href]').each((_, a) => {
     const $a = $(a)
-    const raw = $a.attr('href')
-    if (!raw || raw.startsWith('#') || raw.startsWith('mailto:')) return
-    try {
-      const abs = new URL(raw, url)
-      if (abs.hostname === 'www.unihiker.com.cn' && abs.pathname.startsWith('/wiki/k10')) {
-        $a.attr('href', abs.pathname + abs.hash)
-      } else if (!/^https?:/.test(raw)) {
-        $a.attr('href', abs.href)
-      }
-    } catch {}
+    const rewritten = rewriteLink($a.attr('href'), url, slugSet)
+    if (rewritten) $a.attr('href', rewritten)
   })
 
   let md = td.turndown($article.html())
@@ -114,12 +129,10 @@ async function crawlOne(item, state) {
     `updated: "${today}"`,
     '---'
   ].filter(Boolean)
-  // 注意:frontmatter 后面必须空一行,否则 VitePress 把整篇当 frontmatter
   const fm = fmLines.join('\n') + '\n\n'
   const body = `# ${item.title}\n\n${md}\n`
   const full = fm + body
 
-  // hash 排除 updated 日期,避免每天因为日期变化而全量重写
   const hashBase = fmLines.filter(l => !l.startsWith('updated:')).join('\n') + '\n\n' + body
   const bodyHash = sha1(hashBase)
 
@@ -153,11 +166,13 @@ async function main() {
     if (it.type === 'group') allItems.push(...it.items)
     else allItems.push(it)
   }
+  const slugSet = new Set(allItems.map(it => it.slug ?? ''))
+  console.log(`[白名单] 站内可改写 slug: ${slugSet.size} 个`)
 
   let changed = 0
   for (const item of allItems) {
     try {
-      if (await crawlOne(item, state)) changed++
+      if (await crawlOne(item, state, slugSet)) changed++
     } catch (e) {
       console.error(`  [失败] ${item.href}: ${e.message}`)
     }
