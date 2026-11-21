@@ -79,6 +79,17 @@ async function main() {
     })
   }
 
+// 关键：items 没变就不写文件，避免 generatedAt 时间戳造成无意义 diff
+  if (fs.existsSync(OUT)) {
+    try {
+      const old = JSON.parse(fs.readFileSync(OUT, 'utf8'))
+      if (old.baseUrl === BASE_URL && JSON.stringify(old.items) === JSON.stringify(items)) {
+        console.log(`[无变化] urls.json 保持不变`)
+        return
+      }
+    } catch {}
+  }
+
   const out = { generatedAt: new Date().toISOString(), baseUrl: BASE_URL, items }
   fs.writeFileSync(OUT, JSON.stringify(out, null, 2), 'utf8')
   console.log(`[完成] → ${OUT}`)
