@@ -2,12 +2,11 @@ name: Sync K10 Wiki
 
 on:
   schedule:
-    - cron: '0 0 * * 1'   # 每周一 00:00 UTC = 北京 08:00
+    - cron: '0 18 * * *'   # 每天 18:00 UTC = 北京 02:00,原站维护空窗期
   workflow_dispatch:
 
 permissions:
   contents: write
-  pull-requests: write
 
 jobs:
   sync:
@@ -34,19 +33,14 @@ jobs:
       - name: Build check
         run: npm run docs:build
 
-      - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v6
-        with:
-          commit-message: 'chore: sync K10 wiki'
-          title: 'chore: sync K10 wiki'
-          body: |
-            自动同步行空板 K10 官方文档。
-            由 GitHub Actions 每周一生成。
-          branch: bot/sync-k10
-          delete-branch: true
-          add-paths: |
-            urls.json
-            state.json
-            docs/wiki
-            docs/public/images
-            docs/.vitepress/sidebar.mts
+      - name: Commit and push if changed
+        run: |
+          if [ -z "$(git status --porcelain)" ]; then
+            echo "No changes, skip."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add urls.json state.json docs/wiki docs/public/images docs/.vitepress/sidebar.mts
+          git commit -m "chore: sync K10 wiki $(date -u +%Y-%m-%d)"
+          git push
